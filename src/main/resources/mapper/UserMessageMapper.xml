@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lzq.springbootredis.dao.UserMessageMapper">
+  <resultMap id="BaseResultMap" type="com.lzq.springbootredis.model.UserMessage">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="sex" jdbcType="CHAR" property="sex" />
+    <result column="phone_number" jdbcType="INTEGER" property="phoneNumber" />
+  </resultMap>
+
+
+  <select id="selectByExample" resultMap="BaseResultMap">
+
+    select
+    *
+    from user_message
+      order by name
+
+  </select>
+
+  <insert id="insert" parameterType="com.lzq.springbootredis.model.UserMessage">
+    insert into user_message (name, sex, phone_number
+      )
+    values ( #{name,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, #{phoneNumber,jdbcType=INTEGER}
+      )
+  </insert>
+
+
+</mapper>

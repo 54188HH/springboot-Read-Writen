@@ -1,0 +1,20 @@
+spring:
+  datasource:
+   type: com.alibaba.druid.pool.DruidDataSource
+   druid:
+    lzq-master:
+     driverClassName: com.mysql.jdbc.Driver
+     username: root
+     password: 123456
+     url: jdbc:mysql://192.168.10.183:3306/dgmssm?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8
+    lzq-slave:
+     driverClassName: com.mysql.jdbc.Driver
+     username: root
+     password: 123456
+     url: jdbc:mysql://192.168.10.183:3306/dgm_cmcc?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8
+mybatis:
+  typeAliasesPackage: com.lzq.springbootredis.model
+  mapperLocations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    auto-mapping-unknown-column-behavior:
